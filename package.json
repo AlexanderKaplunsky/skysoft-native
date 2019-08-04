@@ -20,6 +20,7 @@
     "react-native-shadow": "^1.2.2",
     "react-native-svg": "^9.5.3",
     "react-navigation": "^3.11.1",
+    "react-navigation-hooks": "^1.0.1",
     "validate.js": "^0.13.1"
   },
   "devDependencies": {

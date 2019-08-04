@@ -28,9 +28,8 @@ import SignIn from "./src/screens/signIn";
 import Menu from "./src/screens/menu";
 import Profile from "./src/screens/profile";
 import Shopping from "./src/screens/shopping";
-import LogoutButton from "./src/Components/logoutButton";
 import Gallery from "./src/screens/gallery";
-// import DrawerComponent from './src/navigation/navigation'
+import DrawerComponent from "./src/navigation/navigation";
 // import Navigation from "./src/navigation/navigation";
 
 import {
@@ -42,7 +41,7 @@ import {
 const App = () => {
   return (
     <Fragment>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="light-content" backgroundColor="#197EC3" />
       <View style={styles.mainWrapper}>
         {/* <SignIn /> */}
         {/* <Navigation /> */}
@@ -57,43 +56,47 @@ const AppNavigator = createStackNavigator(
     Menu,
     Profile,
     Shopping,
-    LogoutButton,
     Gallery
-    // DrawerNavigator
   },
   {
     initialRouteName: "Menu",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "#197EC3"
+        backgroundColor: "#197EC3",
+        width: "100%",
+        alignItems: "baseline"
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: "bold"
+        fontFamily: "Catamaran-Bold",
+        // backgroundColor: "red",
+        flex: 1,
+        textAlign: "center",
+        letterSpacing: 1
       }
     }
   }
 );
 
-// const DrawerNavigator = createDrawerNavigator(
-//   {
-//     Shopping,
-//     Profile
-//   },
-//   {
-//     // contentComponent: <DrawerComponent/>
-//     hideStatusBar: true,
-//     drawerBackgroundColor: "rgba(255,255,255,.9)",
-//     overlayColor: "#6b52ae",
-//     contentOptions: {
-//       activeTintColor: "#fff",
-//       activeBackgroundColor: "#6b52ae"
-//     }
-//   }
-// );
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Shopping,
+    Profile
+  },
+  {
+    contentComponent: DrawerComponent,
+    hideStatusBar: true,
+    drawerBackgroundColor: "rgba(255,255,255,.9)",
+    overlayColor: "#6b52ae",
+    contentOptions: {
+      activeTintColor: "#fff",
+      activeBackgroundColor: "#6b52ae"
+    }
+  }
+);
 
 const styles = StyleSheet.create({
   mainWrapper: {}
 });
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(AppNavigator, DrawerNavigator);

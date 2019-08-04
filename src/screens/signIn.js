@@ -16,7 +16,7 @@ import * as Keychain from "react-native-keychain";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SignIn = ({ navigation }) => {
-  const [userEmail, setUserEmail] = useState("skysoft.tech@gmail.co");
+  const [userEmail, setUserEmail] = useState("skysoft.tech@gmail.com");
   const [userPassword, setUserPassword] = useState("oven2010");
   const [emailError, setEmailError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
@@ -98,11 +98,12 @@ const SignIn = ({ navigation }) => {
             />
           </View>
           <Text style={styles.errorMessage}> {passwordError} </Text>
-          <View style={styles.confirmButton}>
-            <TouchableOpacity onPress={handleConfirm}>
-              <Text style={styles.confirmButtonText}>CONFIRM</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            onPress={handleConfirm}
+            style={styles.confirmButton}
+          >
+            <Text style={styles.confirmButtonText}>CONFIRM</Text>
+          </TouchableOpacity>
         </View>
         {/* </ImageBackground> */}
       </KeyboardAwareScrollView>

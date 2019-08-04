@@ -9,7 +9,8 @@ import {
   AsyncStorage
 } from "react-native";
 
-import LogoutButton from "../Components/logoutButton";
+import LogoutButton from "../Components/header/logoutButton";
+import DrawerHandler from "../Components/header/drawerHandler";
 
 const Menu = ({ navigation }) => {
   useEffect(() => {
@@ -22,33 +23,36 @@ const Menu = ({ navigation }) => {
   }, []);
   return (
     <View style={styles.wrapper}>
-      <View style={styles.itemWrapper}>
-        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/Images/forum-user.png")}
-          />
-          <Text style={styles.menuText}>Profile</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.itemWrapper}>
-        <TouchableOpacity onPress={() => navigation.navigate("Shopping")}>
-          <Image
-            style={styles.image}
-            source={require("../../assets/Images/shopping-cart.png")}
-          />
-          <Text style={styles.menuText}>Shopping</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.itemWrapper}>
-        <TouchableOpacity onPress={() => navigation.navigate("Gallery")}>
-          <Image
-            style={styles.galleryImage}
-            source={require("../../assets/Images/gallery_icon.png")}
-          />
-          <Text style={styles.menuText}>Gallery</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles.itemWrapper}
+        onPress={() => navigation.navigate("Profile")}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../assets/Images/forum-user.png")}
+        />
+        <Text style={styles.menuText}>Profile</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.itemWrapper}
+        onPress={() => navigation.navigate("Shopping")}
+      >
+        <Image
+          style={styles.image}
+          source={require("../../assets/Images/shopping-cart.png")}
+        />
+        <Text style={styles.menuText}>Shopping</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.itemWrapper}
+        onPress={() => navigation.navigate("Gallery")}
+      >
+        <Image
+          style={styles.galleryImage}
+          source={require("../../assets/Images/gallery_icon.png")}
+        />
+        <Text style={styles.menuText}>Gallery</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -95,17 +99,9 @@ const styles = StyleSheet.create({
 });
 
 Menu.navigationOptions = {
-  title: "Test Tasks",
+  title: "TEST TASKS",
   headerRight: <LogoutButton />,
-  headerLeft: (
-    <View>
-      <TouchableOpacity>
-        <Text>-</Text>
-        <Text>-</Text>
-        <Text>-</Text>
-      </TouchableOpacity>
-    </View>
-  )
+  headerLeft: <DrawerHandler />
 };
 
 export default Menu;

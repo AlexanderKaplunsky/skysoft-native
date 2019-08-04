@@ -14,6 +14,7 @@ import {
 } from "react-native";
 
 import userfakedata from "../fakedata/userfakedata";
+import SaveButton from "../Components/header/saveButton";
 
 import UserPersonalDetails from "../Components/profile/PersonalDetails";
 import UserAdress from "../Components/profile/Adress";
@@ -115,14 +116,15 @@ const styles = StyleSheet.create({
 });
 
 Profile.navigationOptions = {
-  title: "Profile",
-  headerRight: (
-    <View>
-      <TouchableOpacity>
-        <Text>Save</Text>
-      </TouchableOpacity>
-    </View>
-  )
+  title: "PROFILE",
+  headerTitleStyle: {
+    fontFamily: "Catamaran-Bold",
+    // backgroundColor: "red",
+    flex: 1,
+    textAlign: "center",
+    letterSpacing: 1
+  },
+  headerRight: <SaveButton />
 };
 
 export default Profile;

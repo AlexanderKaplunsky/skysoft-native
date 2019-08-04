@@ -87,4 +87,14 @@ const Gallery = ({ navigation }) => {
   );
 };
 
+Gallery.navigationOptions = {
+  title: "GALLERY",
+  headerTitleStyle: {
+    fontFamily: "Catamaran-Bold",
+    flex: 0.8,
+    textAlign: "center",
+    letterSpacing: 1
+  }
+};
+
 export default Gallery;

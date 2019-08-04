@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, StyleSheet } from "react-native";
 import { SafeAreaView, DrawerItem } from "react-navigation";
 import SingIn from "../screens/signIn";
 import Menu from "../screens/menu";

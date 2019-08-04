@@ -112,7 +112,13 @@ const styles = StyleSheet.create({
 });
 
 Shopping.navigationOptions = {
-  title: "Shopping"
+  title: "SHOPPING",
+  headerTitleStyle: {
+    fontFamily: "Catamaran-Bold",
+    flex: 0.8,
+    textAlign: "center",
+    letterSpacing: 1
+  }
 };
 
 export default Shopping;
