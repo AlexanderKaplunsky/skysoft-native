@@ -12,7 +12,10 @@ import {
 import LogoutButton from "../Components/header/logoutButton";
 import DrawerHandler from "../Components/header/drawerHandler";
 
+import SplashScreen from "react-native-splash-screen";
+
 const Menu = ({ navigation }) => {
+  SplashScreen.show();
   useEffect(() => {
     AsyncStorage.getItem("isAuth").then(data => {
       if (data == "false") {
@@ -20,6 +23,7 @@ const Menu = ({ navigation }) => {
         navigation.replace("SignIn");
       }
     });
+    SplashScreen.hide();
   }, []);
   return (
     <View style={styles.wrapper}>
