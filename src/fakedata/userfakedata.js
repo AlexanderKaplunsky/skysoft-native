@@ -1,5 +1,5 @@
 export default {
-  Photo: "../../../assets/forum-user.png",
+  Photo: "https://picsum.photos/id/1018/3914/2935",
   personalDetails: [
     { label: "First name", value: "Alexander" },
     { label: "Last name", value: "Kaplunsky" },

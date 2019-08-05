@@ -80,8 +80,9 @@ const Profile = () => {
     <KeyboardAwareScrollView>
       <View style={styles.headerWrapper}>
         <ImageBackground
-          source={require("../../assets/Images/colorful_bg.png")}
-          style={{ height: "100%" }}
+          blurRadius={2}
+          source={{ uri: `${localUserPhoto}` }}
+          style={styles.background}
         >
           <Avatar
             localUserPhoto={localUserPhoto}
@@ -112,7 +113,12 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 70
   },
-  bodyWrapper: {}
+  background: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover"
+    // blurRadius:
+  }
 });
 
 Profile.navigationOptions = {

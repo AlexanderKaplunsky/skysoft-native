@@ -4,16 +4,15 @@ import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const Avatar = ({ localUserPhoto, haldePickImage }) => {
   return (
-    <View style={styles.avatarWrapper}>
-      <TouchableOpacity onPress={haldePickImage}>
-        <Image source={{ uri: `${localUserPhoto}` }} style={styles.avatar} />
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity onPress={haldePickImage} style={styles.avatarWrapper}>
+      <Image source={{ uri: `${localUserPhoto}` }} style={styles.avatar} />
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   avatarWrapper: {
+    alignItems: "center",
     // position: "absolute",
     width: 154,
     height: 154,
