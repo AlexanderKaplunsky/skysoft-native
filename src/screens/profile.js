@@ -10,7 +10,8 @@ import {
   ImageBackground,
   TextInput,
   Picker,
-  PermissionsAndroid
+  PermissionsAndroid,
+  AsyncStorage
 } from "react-native";
 
 import userfakedata from "../fakedata/userfakedata";
@@ -26,7 +27,29 @@ import ImagePicker from "react-native-image-picker";
 import Avatar from "../Components/profile/Avatar";
 
 const Profile = () => {
-  const { Photo, Adress, Contacts, personalDetails } = userfakedata;
+  const [defaultData, setDefaultData] = useState({
+    Photo: "https://picsum.photos/id/1018/3914/2935",
+    personalDetails: [
+      { label: "First name", value: "Alexander" },
+      { label: "Last name", value: "Kaplunsky" },
+      { label: "Gender", value: "Male" },
+      { label: "Birthday", value: "2000/04/17" },
+      { label: "Education", value: "Vinnitsa National" },
+      { label: "Summary", value: " Hello, i'm hered!" }
+    ],
+    Adress: [
+      { label: "Country", value: "Ukraine" },
+      { label: "City", value: "Vinnitsa" },
+      { label: "Town", value: "Vinnitsa" },
+      { label: "Street", value: "Zamost" },
+      { label: "House", value: "15" }
+    ],
+    Contacts: [
+      { label: "Email", value: "sashakaplunsky@gmail.com" },
+      { label: "Phone", value: "380933351257" }
+    ]
+  });
+  const { Photo, Adress, Contacts, personalDetails } = defaultData;
   const [localUserPhoto, setLocalUserProto] = useState(Photo);
   const [localPersonalDetails, setLocalPersonalDetails] = useState(
     personalDetails

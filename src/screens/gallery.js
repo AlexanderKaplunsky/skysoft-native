@@ -58,20 +58,26 @@ const Gallery = ({ navigation }) => {
           <FlatList
             //   initialNumToRender={9}
             //   onEndReachedThreshold={1}
+            numColumns={3}
             onEndReached={handleLoadMore}
             contentContainerStyle={{
               flex: 1,
               // flexWrap: "wrap",
-              flexDirection: "column",
-              height: "100%",
-              width: "100%"
+              // flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between"
+              // height: "100%",
+              // width: "100%"
             }}
             data={photoData}
             renderItem={({ item }) => (
               <View
                 style={{
-                  marginTop: 25,
-                  width: "50%"
+                  // marginTop: 25,
+                  // marginHorizontal
+                  width: "30%",
+                  marginHorizontal: 5,
+                  marginVertical: 5
                 }}
               >
                 <Image

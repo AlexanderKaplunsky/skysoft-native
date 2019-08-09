@@ -18,13 +18,17 @@ const UserPersonalDetails = ({
                 <View style={styles.itemWrapper}>
                   <Text style={styles.itemLabel}>{item.label}</Text>
                   <Picker
-                    style={styles.itemPicker}
+                    // style={styles.itemPicker}
                     value={item.value}
                     onValueChange={e =>
                       handlePersonalDetailsEdit(e, item.label)
                     }
                   >
-                    <Picker.Item label={"Male"} value={"Male"} />
+                    <Picker.Item
+                      label={"Male"}
+                      value={"Male"}
+                      style={styles.itemPicker}
+                    />
                     <Picker.Item label={"Female"} value={"Female"} />
                   </Picker>
                 </View>
@@ -123,9 +127,9 @@ const styles = StyleSheet.create({
   itemDatePicker: {
     width: "100%",
     marginBottom: "3%",
-    fontFamily: "OpenSans-Regular",
-    color: "#000",
-    fontSize: 16,
+    // fontFamily: "OpenSans-Regular",
+    // color: "#000",
+    // fontSize: 16,
     borderColor: "#E0E0E0",
     borderWidth: 1,
     borderRadius: 5,
