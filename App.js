@@ -74,6 +74,7 @@ const DrawerNavigator = createDrawerNavigator(
     contentComponent: DrawerComponent,
     hideStatusBar: false,
     drawerBackgroundColor: "rgba(255,255,255,.9)",
+    drawerLockMode: "unlocked",
     contentOptions: {
       activeTintColor: "#fff",
       activeBackgroundColor: "#6b52ae"

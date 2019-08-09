@@ -3691,7 +3691,7 @@ jest@^24.8.0:
     import-local "^2.0.0"
     jest-cli "^24.8.0"
 
-jetifier@^1.6.2:
+jetifier@^1.6.2, jetifier@^1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.3.tgz#61a95b29aefddfe3b6d81ee956f5e99f8b9cba19"
   integrity sha512-i0rb2nHVPZDPzFhgs9+yYxEDMh2z0iSHRD3vBQmvn98wlgWKwhmU2F3MUEEXfK+MLnKwLKqsCTvlcS1+CpDTUg==
@@ -5268,6 +5268,11 @@ react-native-svg@^9.5.3:
   version "9.5.3"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.5.3.tgz#2389f3ffd700c6441166496a1aeade31ead89c59"
   integrity sha512-VUOe4TLz7RFdmm/XT9EH87VSwlRykx49qbwJMA+dh9eFM7KPY1qH3kEyN7uRCqJD2eE8toxt9NpjR6ByvtPNlA==
+
+react-native-swipe-gestures@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-gestures/-/react-native-swipe-gestures-1.0.3.tgz#4160f8d459627323f3a3d2770af4bcd82fd054f5"
+  integrity sha512-KOouRzPB2fHFjVombsSdRfYo8SFeNVa4Ho4B5il87DuuF26sPNOtb3je+qaT/xVptedOsCzRPJGbWFMsaBApgg==
 
 react-native-tab-view@^1.2.0, react-native-tab-view@^1.4.1:
   version "1.4.1"

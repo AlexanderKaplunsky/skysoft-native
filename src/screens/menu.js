@@ -13,6 +13,7 @@ import LogoutButton from "../Components/header/logoutButton";
 import DrawerHandler from "../Components/header/drawerHandler";
 
 import SplashScreen from "react-native-splash-screen";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 const Menu = ({ navigation }) => {
   SplashScreen.show();
@@ -26,7 +27,10 @@ const Menu = ({ navigation }) => {
     SplashScreen.hide();
   }, []);
   return (
-    <View style={styles.wrapper}>
+    <GestureRecognizer
+      style={styles.wrapper}
+      onSwipeRight={navigation.openDrawer}
+    >
       <TouchableOpacity
         style={styles.itemWrapper}
         onPress={() => navigation.navigate("Profile")}
@@ -57,7 +61,7 @@ const Menu = ({ navigation }) => {
         />
         <Text style={styles.menuText}>Gallery</Text>
       </TouchableOpacity>
-    </View>
+    </GestureRecognizer>
   );
 };
 
