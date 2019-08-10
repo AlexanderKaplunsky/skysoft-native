@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  AsyncStorage,
-  StyleSheet
-} from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
 
 import { useNavigation } from "react-navigation-hooks";
 

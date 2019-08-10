@@ -10,8 +10,7 @@ import {
   ImageBackground,
   TextInput,
   Picker,
-  PermissionsAndroid,
-  AsyncStorage
+  PermissionsAndroid
 } from "react-native";
 
 import userfakedata from "../fakedata/userfakedata";
@@ -65,9 +64,7 @@ const Profile = () => {
       }
     };
     ImagePicker.showImagePicker(options, response => {
-      console.log("Response = ", response);
       const source = response.uri;
-      console.log(source);
       setLocalUserProto(source);
     });
   };

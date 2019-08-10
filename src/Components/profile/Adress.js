@@ -3,7 +3,6 @@ import React from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 
 const UserAdress = ({ localAdress, handleAdressEdit }) => {
-  console.log(localAdress);
   return (
     <View>
       <Text style={styles.listHeader}>Adress</Text>

@@ -7,88 +7,60 @@ import {
   ScrollView,
   TextInput,
   FlatList,
-  Image
+  Image,
+  StyleSheet,
+  Modal
 } from "react-native";
-import fakeimage from "../fakedata/fakeimage";
+
+import ModalPhoto from "../Components/gallery/modalPhoto";
+import SearchComponent from "../Components/gallery/search";
+import TagsComponent from "../Components/gallery/tags";
+import PicturesComponent from "../Components/gallery/pictures";
+
+import fakeTagData from "../fakedata/fakeTagData";
 
 const Gallery = ({ navigation }) => {
   const [photoData, setPhotoData] = useState([]);
   const [loadMore, setLoadMore] = useState(false);
   const [page, setPage] = useState(1);
   const [newPhotoData, setNewPhotoData] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [currentImage, setCurrentImage] = useState("");
+  const [dates, setDates] = useState(fakeTagData);
 
   useEffect(() => {
     fetchData();
   }, []);
   const fetchData = () => {
-    fetch(`https://picsum.photos/v2/list?page=${page}&limit=20`)
+    const url = `https://picsum.photos/v2/list?page=${page}&limit=30`;
+    fetch(url)
       .then(res => res.json())
-      .then(res => {
-        // console.log("res", res);
-        // let newData = photoData;
-        // newData.push(...res);
-        // console.log("newData", newData);
-        setPhotoData(res);
-        console.log("Fetch photoData", photoData.length);
-        // setNewPhotoData(photoData);
-        // newPhotoData.push(res);
-        // setPhotoData(...newPhotoData);
+      .then(resJSON => {
+        setPhotoData(photoData.concat(resJSON));
       });
   };
-  const handleLoadMore = async () => {
-    try {
-      let nextPage = page + 1;
-      await setPage(nextPage);
-      await fetchData();
-      console.log("here", page);
-    } catch (err) {
-      console.log(err);
-    }
+  const handleLoadMore = () => {
+    setPage(page + 1);
+    fetchData();
   };
-  console.log("photoData", photoData.length);
+
+  const handleLongPress = uri => {
+    setCurrentImage(uri);
+    setOpenModal(true);
+  };
+  const handlePressOut = () => {
+    setOpenModal(false);
+  };
   return (
-    <View>
-      <ScrollView>
-        <View>
-          <TextInput />
-        </View>
-        <View>
-          {console.log("render", photoData.length)}
-          <View />
-          <FlatList
-            //   initialNumToRender={9}
-            //   onEndReachedThreshold={1}
-            numColumns={3}
-            onEndReached={handleLoadMore}
-            contentContainerStyle={{
-              flex: 1,
-              // flexWrap: "wrap",
-              // flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between"
-              // height: "100%",
-              // width: "100%"
-            }}
-            data={photoData}
-            renderItem={({ item }) => (
-              <View
-                style={{
-                  // marginTop: 25,
-                  // marginHorizontal
-                  width: "30%",
-                  marginHorizontal: 5,
-                  marginVertical: 5
-                }}
-              >
-                <Image
-                  style={{ width: 120, height: 120 }}
-                  source={{ uri: item.download_url }}
-                />
-              </View>
-            )}
-          />
-        </View>
-      </ScrollView>
+    <View style={styles.wrapper}>
+      <ModalPhoto currentImage={currentImage} openModal={openModal} />
+      <SearchComponent />
+      <TagsComponent dates={dates} />
+      <PicturesComponent
+        photoData={photoData}
+        handleLongPress={handleLongPress}
+        handlePressOut={handlePressOut}
+      />
     </View>
   );
 };
@@ -102,5 +74,12 @@ Gallery.navigationOptions = {
     letterSpacing: 1
   }
 };
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    backgroundColor: "rgba(132, 139, 141, 0.16)"
+  }
+});
 
 export default Gallery;

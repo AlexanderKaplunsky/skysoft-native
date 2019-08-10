@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   ImageBackground,
   StyleSheet,
-  AsyncStorage,
   Image
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import * as Keychain from "react-native-keychain";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -26,9 +26,7 @@ const SignIn = ({ navigation }) => {
     try {
       await Keychain.setGenericPassword("skysoft.tech@gmail.com", "oven2010");
       await Keychain.getGenericPassword().then(res => setRequiredCred(res));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
   useEffect(() => {
     presettedValues();
@@ -143,7 +141,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "#383838"
   },
-  errorWrapper: {},
   errorMessage: {
     fontFamily: "Catamaran-Regular",
     fontSize: 14,
