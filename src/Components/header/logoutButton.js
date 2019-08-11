@@ -1,15 +1,11 @@
 import React from "react";
 
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  AsyncStorage,
-  StyleSheet
-} from "react-native";
+import { Text, View, TouchableOpacity, StyleSheet } from "react-native";
+
+import AsyncStorage from "@react-native-community/async-storage";
+
 import { useNavigation } from "react-navigation-hooks";
 const LogoutButton = () => {
-  // console.log(navigation);
   const { replace } = useNavigation();
   const logout = () => {
     AsyncStorage.setItem("isAuth", "false");

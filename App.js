@@ -29,6 +29,7 @@ import Menu from "./src/screens/menu";
 import Profile from "./src/screens/profile";
 import Shopping from "./src/screens/shopping";
 import Gallery from "./src/screens/gallery";
+import AuthResolver from "./src/screens/authResolver";
 
 import DrawerComponent from "./src/navigation/navigation";
 
@@ -44,15 +45,15 @@ const AppNavigator = createStackNavigator(
     Menu,
     Profile,
     Shopping,
-    Gallery
+    Gallery,
+    AuthResolver
   },
   {
-    initialRouteName: "Menu",
+    initialRouteName: "AuthResolver",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "#197EC3",
-        width: "100%",
-        alignItems: "baseline"
+        width: "100%"
       },
       headerTintColor: "#fff",
       headerTitleStyle: {

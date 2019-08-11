@@ -1,31 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  AsyncStorage
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 
 import LogoutButton from "../Components/header/logoutButton";
 import DrawerHandler from "../Components/header/drawerHandler";
 
-import SplashScreen from "react-native-splash-screen";
 import GestureRecognizer from "react-native-swipe-gestures";
 
 const Menu = ({ navigation }) => {
-  SplashScreen.show();
-  useEffect(() => {
-    AsyncStorage.getItem("isAuth").then(data => {
-      if (data == "false") {
-        console.log(data);
-        navigation.replace("SignIn");
-      }
-    });
-    SplashScreen.hide();
-  }, []);
   return (
     <GestureRecognizer
       style={styles.wrapper}
